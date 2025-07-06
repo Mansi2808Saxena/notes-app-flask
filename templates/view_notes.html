@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>All Notes</title>
+</head>
+<body>
+    <h1>All Notes</h1>
+    {% if notes %}
+        <ul>
+        {% for note in notes %}
+            <li>
+                <strong>{{ note['text'] }}</strong><br>
+                <small>Created on: {{ note['created_at'].strftime('%#d %B %Y, %I:%M %p') }}</small>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No notes yet.</p>
+    {% endif %}
+    <p><a href="{{ url_for('home') }}">Back</a></p>
+</body>
+</html>
